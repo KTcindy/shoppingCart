@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Item from './component/Item'
 import { connect } from 'dva'
-import {  Radio } from 'antd';
+import {  Radio,Empty,Spin } from 'antd';
 class List extends Component {
   state = {
     flag: 1,
@@ -36,10 +36,11 @@ class List extends Component {
         </div>
         <div className='flex flex-wrap'>
           {
-            list?.map(item => {
+            (list.length?list?.map(item => {
               return <Item item={item} key={item.id} add={this.handleAdd} />
-            })
-          }
+            }):<div className='h-full w-full mt-32'><Empty /></div>
+          )
+            }
         </div>
       </div>
     )

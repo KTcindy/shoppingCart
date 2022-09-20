@@ -3,18 +3,19 @@ import { uniqueFunc } from '../views/utils/index'
 const goodsList = {
     namespace: 'list',
     state: {
-        list: []
+        list: [],
+        loading:false
     },
     reducers: {
         setList (state, action) {
             return {
-                list: uniqueFunc(action.data, 'id')
+                list: uniqueFunc(action.data, 'id'),
             }
         }
     },
     effects: {
         // 初始化数据
-        *initList ({ payload }, { call, put }) {
+        *initList ({ payload }, { call, put, select }) {
             const { data } = yield call(lists, payload);
             yield put({ type: 'setList', data: data.list })
         },
