@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Item from './component/Item'
 import { connect } from 'dva'
-import {  Radio,Empty,Spin } from 'antd';
+import { Radio, Empty } from 'antd';
+
 class List extends Component {
   state = {
     flag: 1,

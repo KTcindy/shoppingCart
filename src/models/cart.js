@@ -60,13 +60,14 @@ const cart = {
             return { checks: data?.data || []};
         },
     },
-    subscriptions: {
-        setChecks ({ dispatch, history }) { 
-            history.listen(location => {
-               let local=JSON.parse(localStorage.getItem('checks'))
-                dispatch({ type: "save",data:local })
-            });
-        },
-    }
+    // subscriptions: {
+    //     setChecks ({ dispatch, history }) { 
+    //         history.listen(location => {
+    //             console.log()
+    //         //    let local=JSON.parse(localStorage.getItem('checks'))
+    //         //     dispatch({ type: "save",data:local })
+    //         });
+    //     },
+    // }
 }
 export default cart

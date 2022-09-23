@@ -7,17 +7,20 @@ const goodsList = {
         loading:false
     },
     reducers: {
-        setList (state, action) {
+        setList (state, { data}) {
             return {
-                list: uniqueFunc(action.data, 'id'),
+                list: uniqueFunc(data, 'id'),
             }
         }
     },
     effects: {
         // 初始化数据
         *initList ({ payload }, { call, put, select }) {
-            const { data } = yield call(lists, payload);
-            yield put({ type: 'setList', data: data.list })
+            let { list } = yield JSON.parse(localStorage.getItem('persist:model'))
+            if (!list.list.length) {
+                const { data } = yield call(lists, payload);
+                yield put({ type: 'setList', data: data.list })
+            }
         },
         // 筛选大小
         *filterSize ({ checks }, { call, put, select }) {

@@ -14,16 +14,17 @@ import Icon from './assets/products/che.png'
     return checks.reduce((c, r) => ~~c + r.num,0)
   }
    componentDidMount () {
-    window.addEventListener('beforeunload', this.beforeUnload);
-  }
-  componentWillUnmount() {
-    window.removeEventListener('beforeunload', this.beforeUnload);
-  }
-  beforeUnload = e => {
-    e.preventDefault();
-    let {checks}=this.props.checks
-    localStorage.setItem('checks',JSON.stringify(checks))
-  };
+    
+    // window.addEventListener('beforeunload', this.beforeUnload);
+   }
+  // componentWillUnmount() {
+  //   window.removeEventListener('beforeunload', this.beforeUnload);
+  // }
+  // beforeUnload = e => {
+  //   e.preventDefault();
+  //   let {checks}=this.props.checks
+  //   localStorage.setItem('checks',JSON.stringify(checks))
+  // };
 
    showModel = (e) => this.setState({ flag: e })
   render () {
