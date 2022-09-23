@@ -16,6 +16,7 @@ app.use({
     extraEnhancers: [
         persistEnhancer({
             key: 'model',
+            whitelist:['cart'],  //白名单
             storage
         })
     ],
