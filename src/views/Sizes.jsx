@@ -48,7 +48,7 @@ import { connect } from 'dva'
       return item
     })
     this.setState({ optionsWithDisabled: arr }, async() => {
-     await this.props.dispatch({type: 'list/initList'})
+     await this.props.dispatch({type: 'list/initList',flag:true})
       let checks = arr.map(item => item.checked && item.value).filter(item => item)
       this.props.dispatch({type:'list/filterSize',checks})
     })

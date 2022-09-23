@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import Item from './component/Item'
 import { connect } from 'dva'
 import { Radio, Empty } from 'antd';
+import { uniqueFunc } from './utils/index'
 
 class List extends Component {
   state = {
     flag: 1,
     sort: void 0,
-    list: []
   }
   // 添加商品
   handleAdd =  (item) => {
@@ -22,7 +22,8 @@ class List extends Component {
   }
   componentDidMount = () => this.props.dispatch({type: 'list/initList'})
   render () {
-    let { list}=this.props.state
+    let list = uniqueFunc(this.props.state.list,'id')
+    
     return (
       <div className='xl:w-2/4 p-4'>
         <div className='flex items-center justify-between px-1'>

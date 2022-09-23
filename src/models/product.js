@@ -9,22 +9,24 @@ const goodsList = {
     reducers: {
         setList (state, { data}) {
             return {
-                list: uniqueFunc(data, 'id'),
+                list:uniqueFunc(data, 'id'),
             }
-        }
+        },
     },
     effects: {
         // 初始化数据
-        *initList ({ payload }, { call, put, select }) {
-            let { list } = yield JSON.parse(localStorage.getItem('persist:model'))
-            if (!list.list.length) {
+        *initList ({payload,flag} , { call, put, select }) {
+            console.log(flag,'0-')
+            // let { list } = yield JSON.parse(localStorage.getItem('persist:model'))
+            // !list.list.length || 
+            // if (flag) {
                 const { data } = yield call(lists, payload);
                 yield put({ type: 'setList', data: data.list })
-            }
+            // }
         },
-        // 筛选大小
+        // 筛选大小  此处可写在 reducers内
         *filterSize ({ checks }, { call, put, select }) {
-            let filters = []
+            let filters = [];
             let filtersSzies = yield select(({ list }) => {
                 checks.map(v => {
                     list.list.map(item => {

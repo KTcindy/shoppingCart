@@ -11,6 +11,7 @@ const app = dva();
 // 
 app.model(goodsList);
 app.model(cart);
+// 注册插件
 app.use({
     extraEnhancers: [
         persistEnhancer({
