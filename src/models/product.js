@@ -16,10 +16,6 @@ const goodsList = {
     effects: {
         // 初始化数据
         *initList ({payload,flag} , { call, put, select }) {
-            // console.log(flag,'0-')
-            // let { list } = yield JSON.parse(localStorage.getItem('persist:model'))
-            // !list.list.length || 
-            // if (flag) {
                 const { data } = yield call(lists, payload);
                 yield put({ type: 'setList', data: data.list })
             // }

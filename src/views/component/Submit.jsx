@@ -16,8 +16,8 @@ class Submit extends Component {
     submit = () => {
         let { total } = this.sumFunction()
         alert(total ? `Checkout - Subtotal: $ ${total}` : 'Add some product in the cart!')
-        // this.props.dispatch({type:'cart/del',data:{item:[],type:'all'}})
-        localStorage.removeItem('checks')
+        this.props.dispatch({type:'cart/del',data:{item:[],type:'submit'}})
+        localStorage.removeItem('persist:model')
     }
     render () {
         let { total, installments, priceTotal } = this.sumFunction()

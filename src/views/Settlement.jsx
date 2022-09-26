@@ -12,7 +12,7 @@ import Submit from './component/Submit';
     }
     //移除商品、添加数量、减少数量
      del = (item, type = 'all') => {
-         let {dispatch } = this.props
+         let { dispatch } = this.props
          dispatch({type:'cart/del',data:{item,type}})
     }
      render () {

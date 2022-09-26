@@ -55,6 +55,11 @@ const cart = {
                     checks: checks
                 }
             }
+            if (data.type === 'submit') {
+                return {
+                    checks: []
+                }
+            }
         },
         save (state, data) {
             return { checks: data?.data || []};
